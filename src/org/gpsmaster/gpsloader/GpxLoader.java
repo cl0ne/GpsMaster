@@ -9,10 +9,14 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Constructor;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.xml.bind.DatatypeConverter;
 import javax.xml.bind.JAXBException;
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.stream.XMLOutputFactory;
@@ -97,9 +101,8 @@ public class GpxLoader extends XmlLoader {
 				metadata.setKeywords(subElement.getTextContent());
 			}
 			if (nodeName.equals("time")) {
-				Calendar cal = DatatypeConverter.parseDateTime(subElement.getTextContent());
-				metadata.setTime(cal.getTime());	
-			}
+                metadata.setTime(subElement.getTextContent());
+            }
 			if (nodeName.equals("link")) {
 				metadata.getLink().add(parseLink(subElement));
 			}
@@ -380,10 +383,8 @@ public class GpxLoader extends XmlLoader {
 		// waypoints
 		for (Element wpt : getSubElementsByTagName(root, "wpt")) {
 			Waypoint trkpt = parseTrackPoint(wpt);
-			if (wpt != null) {
-				Marker marker = waypointToMarker(trkpt);
-				gpx.getWaypointGroup().addWaypoint(marker);
-			}
+			Marker marker = waypointToMarker(trkpt);
+			gpx.getWaypointGroup().addWaypoint(marker);
 		}
 
 		return gpx;
@@ -556,7 +557,7 @@ public class GpxLoader extends XmlLoader {
        	// TODO copyright
        	
         if (metadata.getTime() != null) {
-        	writeSimpleElement("time", metadata.getTime());
+        	writeSimpleElement("time", metadata.getTime().toString());
         }
         // links
         writeLinks(metadata.getLink());

@@ -366,7 +366,7 @@ public class GpxPropertiesTableModel extends DefaultTableModel {
         // }
         String timeString = "";
         if (gpxFile.getMetadata().getTime() != null) {
-            Date time = gpxFile.getMetadata().getTime();
+            Date time = gpxFile.getMetadata().getTimeAsDate();
             timeString = sdf.format(time);
         }
         addRow(new Object[]{"GPX time", timeString, false}); // show even if empty

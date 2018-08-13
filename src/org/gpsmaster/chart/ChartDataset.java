@@ -6,7 +6,7 @@ import java.util.List;
 import org.gpsmaster.gpxpanel.Waypoint;
 import org.gpsmaster.gpxpanel.WaypointGroup;
 import org.jfree.chart.axis.ValueAxis;
-import org.jfree.data.general.DatasetUtilities;
+import org.jfree.data.general.DatasetUtils;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
@@ -125,7 +125,7 @@ public class ChartDataset {
 		Waypoint wpt = null;
 		int wptIdx = -1;
 		for (int i = 0; i < groups.size(); i++) {
-			int[] idx = DatasetUtilities.findItemIndicesForX(collection, i, xValue);
+			int[] idx = DatasetUtils.findItemIndicesForX(collection, i, xValue);
 			if (idx[0] != -1) {
 				wptIdx = idx[0];
 				return groups.get(i).getWaypoints().get(wptIdx);

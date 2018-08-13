@@ -70,19 +70,14 @@ public class LocalToUTC extends TimeshiftAlgorithm {
 	 */
 	@Override
 	public void undo() {
-		DateTimeZone localZone = DateTimeZone.getDefault();		
-		for (WaypointGroup group : waypointGroups) {			
+		DateTimeZone localZone = DateTimeZone.getDefault();
+		for (WaypointGroup group : waypointGroups) {
 			for (Waypoint wpt : group.getWaypoints()) {
 				Date localtime = wpt.getTime();
 				if (localtime != null) {
 					wpt.setTime(new Date(localZone.convertUTCToLocal(localtime.getTime())));
 				}
 			}
-		}		
-
-		
+		}
 	}
-
-	
-
 }

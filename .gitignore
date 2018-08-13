@@ -8,6 +8,16 @@
 .~*#
 .directory
 
+GpsMaster.config
+
 # Intermediate build files
 *.class
 bin/
+
+# IDEA project files
+.idea/*
+# keep dependency settings
+!/.idea/jarRepositories.xml
+!/.idea/modules.xml
+!/.idea/libraries/
+

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="org.openstreetmap.jmapviewer" type="repository">
+    <properties maven-id="org.openstreetmap.jmapviewer:jmapviewer:2.6" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/openstreetmap/jmapviewer/jmapviewer/2.6/jmapviewer-2.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

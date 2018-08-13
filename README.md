@@ -9,3 +9,11 @@ GpsMaster
 
 ## About this repository
 Initially, this repository contains contents of GpsMaster 0.63.20 [source archive](http://www.gpsmaster.org/download/GpsMaster_0.63.20_src.zip).
+
+Current project state:
+
+* it can be built and run with Intellij IDEA, Eclipse project files became obsolete and were deleted (I suppose, it would better to use Gradle/Maven)
+* dependencies were updated to their current versions and local JAR references were replaced with Maven coordinates
+* GIS library from gpsmaster.org replaced by [osm-tools](https://github.com/grundid/osm-tools)
+* monkey-patched to get it running ¯\\\_(ツ)_/¯
+* GpsMaster.config file in CWD probably should be replaced with StoredPreferences or equivalent solution

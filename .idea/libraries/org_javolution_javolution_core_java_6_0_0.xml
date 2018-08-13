@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="org.javolution:javolution-core-java:6.0.0" type="repository">
+    <properties maven-id="org.javolution:javolution-core-java:6.0.0" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/javolution/javolution-core-java/6.0.0/javolution-core-java-6.0.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/osgi/org.osgi.core/4.3.1/org.osgi.core-4.3.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/osgi/org.osgi.compendium/4.3.1/org.osgi.compendium-4.3.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

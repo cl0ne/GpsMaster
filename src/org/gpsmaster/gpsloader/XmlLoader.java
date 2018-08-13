@@ -140,7 +140,7 @@ public abstract class XmlLoader extends GpsLoader {
 			 Node node = nodes.item(i);
 			 if (node.getNodeType() == Node.ELEMENT_NODE) {
 				 Element element = (Element) node;
-				 if (element.getNodeName() == tag) {
+				 if (element.getNodeName().equals(tag)) {
 					 out.add(element);
 				 }
 			 }

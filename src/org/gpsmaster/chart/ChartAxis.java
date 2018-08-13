@@ -6,7 +6,7 @@ import org.gpsmaster.Const;
 import org.gpsmaster.GpsMaster;
 import org.gpsmaster.gpxpanel.Waypoint;
 import org.jfree.chart.axis.ValueAxis;
-import org.jfree.ui.RectangleInsets;
+import org.jfree.chart.ui.RectangleInsets;
 
 import eu.fuegenstein.unit.UnitConverter;
 

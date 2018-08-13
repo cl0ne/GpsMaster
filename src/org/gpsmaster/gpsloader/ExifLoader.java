@@ -89,13 +89,13 @@ public class ExifLoader extends GpsLoader {
 		String device = "";
 		
 		// Metadata metadata = ImageMetadataReader.readMetadata(file);
-		Metadata metadata = ImageMetadataReader.readMetadata(new BufferedInputStream(inStream), true);
+		Metadata metadata = ImageMetadataReader.readMetadata(new BufferedInputStream(inStream));
 
 		GpsDirectory gpsDirectory = null;
 		GpsDescriptor gpsDescriptor = null;
 		GeoLocation location = null;
 		try {
-			gpsDirectory = metadata.getDirectory(GpsDirectory.class);
+			gpsDirectory = metadata.getFirstDirectoryOfType(GpsDirectory.class);
 			gpsDescriptor = new GpsDescriptor(gpsDirectory);
 			location = gpsDirectory.getGeoLocation();
 		} catch (NullPointerException e) {
@@ -105,8 +105,8 @@ public class ExifLoader extends GpsLoader {
 		marker = new PhotoMarker(location.getLatitude(), location.getLongitude());
 		marker.setName(file.getName());
 		marker.setDirectory(file.getPath());
-		if (gpsDirectory.containsTag(GpsDirectory.TAG_GPS_ALTITUDE)) {
-			marker.setEle(gpsDirectory.getDouble(GpsDirectory.TAG_GPS_ALTITUDE));
+		if (gpsDirectory.containsTag(GpsDirectory.TAG_ALTITUDE)) {
+			marker.setEle(gpsDirectory.getDouble(GpsDirectory.TAG_ALTITUDE));
 		}
 
 		for (Directory directory : metadata.getDirectories()) {
@@ -128,23 +128,23 @@ public class ExifLoader extends GpsLoader {
 	    SimpleDateFormat sdf = new SimpleDateFormat("yyyy:MM:dd k:mm:ss Z");
 	    try {
 			timestamp = sdf.parse(dateString + " " + timeString);
-		} catch (ParseException e) { }
+		} catch (ParseException ignored) { }
 	    
 
-	    ExifIFD0Directory ifd0Directory = metadata.getDirectory(ExifIFD0Directory.class);
+	    ExifIFD0Directory ifd0Directory = metadata.getFirstDirectoryOfType(ExifIFD0Directory.class);
 	    for (Tag tag : ifd0Directory.getTags()) {
 	       if (tag.getTagName().equals("Date/Time") && (timestamp == null)) {
 	    	   sdf = new SimpleDateFormat("yyyy:MM:dd HH:mm:ss");
 	    	   try {
 				timestamp = sdf.parse(tag.getDescription());
-			} catch (ParseException e) { }		    	   
+			} catch (ParseException ignored) { }
 	       }
 	    }
 	    
 	    if (timestamp != null) {
 	    	marker.setTime(timestamp);
 	    }
-	    if (device.isEmpty() == false) {
+	    if (!device.isEmpty()) {
 	    	marker.setCmt(device);
 	    }
 			

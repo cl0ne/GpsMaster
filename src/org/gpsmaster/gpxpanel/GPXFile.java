@@ -225,7 +225,7 @@ public class GPXFile extends GPXObject /* implements TreeNode */ {
      * but is avoided here (for performance reasons?)
      */
     public void addExtensionPrefix(String prefix) {
-    	if (extPrefixes.contains(prefix) == false) {
+    	if (!extPrefixes.contains(prefix)) {
     		extPrefixes.add(prefix);
     	}
     }

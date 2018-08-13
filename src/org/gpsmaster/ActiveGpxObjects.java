@@ -510,7 +510,7 @@ public class ActiveGpxObjects {
             		return;
             	}
                 if (currSelection instanceof GPXObject) {
-                    setGpxFromTree((GPXObject) currSelection);
+                     setGpxFromTree((GPXObject) currSelection);
                  	setActiveGpx((GPXObject) currSelection);
                 } 
                 if (currSelection instanceof Marker) {

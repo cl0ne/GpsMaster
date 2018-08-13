@@ -168,7 +168,7 @@ import eu.fuegenstein.unit.UnitSet;
  * 
  * The main application class for GPS Master, a GUI for analyzing, converting and 
  * manipulating files containing GPS data.<br />
- * Based on GPX Creator by Matt Hoover, extended by Rainer Fügenstein
+ * Based on GPX Creator by Matt Hoover, extended by Rainer FÃ¼genstein
  * More info at
  * 		www.gpsmaster.org 
  * 		www.gpxcreator.com

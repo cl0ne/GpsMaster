@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="net.sf.marineapi:0.10.0" type="repository">
+    <properties maven-id="net.sf.marineapi:marineapi:0.10.0" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/net/sf/marineapi/marineapi/0.10.0/marineapi-0.10.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
