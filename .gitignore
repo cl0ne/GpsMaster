@@ -1,0 +1,13 @@
+# Common
+#
+.DS_Store
+[Tt]humbs.db
+[Dd]esktop.ini
+*.bak
+*~
+.~*#
+.directory
+
+# Intermediate build files
+*.class
+bin/
